@@ -1,17 +1,31 @@
-import sqlite3
+from flask import Flask, request, jsonify
+import sqlalchemy
 
-def get_user_data(username):
-    # Vulnerable to SQL Injection
-    query = f"SELECT * FROM users WHERE username = '{username}'"
+app = Flask(__name__)
+
+# Replace with your actual connection string
+connection_string = 'sqlite:///example.db'
+
+@app.route('/example', methods=['GET'])
+def get_users():
+    # Get the 'user' parameter from the query string
+    user = request.args.get("user")
     
-    conn = sqlite3.connect("example.db")
-    cursor = conn.cursor()
-    cursor.execute(query)  # This allows SQL injection!
-    result = cursor.fetchall()
+    # Create the database connection
+    engine = sqlalchemy.create_engine(connection_string)
+    conn = engine.connect()
     
+    # Vulnerable SQL query - prone to SQL injection
+    result = conn.execute("SELECT user FROM users WHERE user = '" + user + "'")
+
+    # Fetch all results
+    users = [row[0] for row in result]
+
+    # Close the connection
     conn.close()
-    return result
 
-# Example of potential SQL injection attempt
-username_input = input("Enter your username: ")
-print(get_user_data(username_input))
+    # Return the results as JSON
+    return jsonify(users=users)
+
+if __name__ == "__main__":
+    app.run(debug=True)
