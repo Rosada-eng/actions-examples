@@ -1,4 +1,4 @@
-name: Update Lambda Layer
+name: Deploy Code into AWS Lambda
 
 on:
   push:
