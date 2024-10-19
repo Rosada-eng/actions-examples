@@ -3,7 +3,7 @@ name: Deploy Code into AWS Lambda
 on:
   push:
     paths:
-      - 'aws/lambdas/**'
+      - 'aws/lambdass/**'
   workflow_dispatch:
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
       # Step 4: Zip the layer contents
       - name: Package Lambda Layer
         run: |
-          cd aws/lambda
+          cd aws/lambdas
           zip -r new_lambda_layer.zip .
 
       # Step 5: Update Lambda Function Code
@@ -38,4 +38,4 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
-            --zip-file fileb://aws/lambda/new_lambda_layer.zip
+            --zip-file fileb://aws/lambdas/new_lambda_layer.zip
