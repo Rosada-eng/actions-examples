@@ -20,7 +20,7 @@ public final class CleanCode {
 
     result = a + b;
     System.out.println("Result: " + result);
-
+  }
 
   /**
    * Adds two integers.
