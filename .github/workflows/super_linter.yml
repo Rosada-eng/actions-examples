@@ -20,6 +20,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
   fix-lint-issues:
+    name: Fix linting issues
     permissions:
       # To write linting fixes
       contents: write
@@ -37,6 +38,8 @@ jobs:
           # Set your fix mode variables to true
           FIX_SHELL_SHFMT: true
           FIX_YAML_PRETTIER: true
+          FIX_JAVA: true
+          FIX_GOOGLE_JAVA_FORMAT: true
           # To reuse the same Super-linter configuration that you use in the
           # lint job without duplicating it, see
           # https://github.com/super-linter/super-linter/blob/main/docs/run-linter-locally.md#share-environment-variables-between-environments
