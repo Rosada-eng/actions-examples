@@ -27,15 +27,15 @@ jobs:
       - name: Install zip
         run: sudo apt-get install zip -y
 
-      # Step 4: Zip the layer contents (you may need to adapt this based on your structure)
+      # Step 4: Zip the layer contents
       - name: Package Lambda Layer
         run: |
           cd aws/lambda
           zip -r new_lambda_layer.zip .
 
-      # Step 5: Update Lambda Layer
-      - name: lambda_code_update
-      run: |
-        aws lambda update-function-code \
-          --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
-          --zip-file fileb://aws/lambda/new_lambda_layer.zip
+      # Step 5: Update Lambda Function Code
+      - name: Lambda Function Code Update
+        run: |
+          aws lambda update-function-code \
+            --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
+            --zip-file fileb://aws/lambda/new_lambda_layer.zip
