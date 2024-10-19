@@ -2,10 +2,7 @@
 name: Lint
 
 on: # yamllint disable-line rule:truthy
-  push:
-    branches:
-      - linter
-  pull_request: null
+  push
 
 permissions: {}
 
