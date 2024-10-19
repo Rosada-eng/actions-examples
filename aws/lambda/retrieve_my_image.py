@@ -1,6 +1,7 @@
 import base64
 import os
 
+# Change image option in order to test CI/CD pipeline
 USE_IMAGE = "feup_1.png"
 
 def get_image_path() -> str:
