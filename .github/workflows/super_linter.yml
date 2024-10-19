@@ -22,8 +22,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FIX_SHELL_SHFMT: true
-          FIX_YAML_PRETTIER: true
           FIX_GOOGLE_JAVA_FORMAT: true
+          VALIDATE_YAML_PRETTIER: false
 
       - name: Commit and push linting fixes
         # Run only on:
