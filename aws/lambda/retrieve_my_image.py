@@ -1,8 +1,10 @@
 import base64
 import os
 
+USE_IMAGE = "feup_0.jpg"
+
 def get_image_path() -> str:
-    return os.path.join(os.path.dirname(__file__), "img", "feup.jpg")
+    return os.path.join(os.path.dirname(__file__), "img", USE_IMAGE)
 
 def lambda_handler(event, context):
     # Path to the image in the Lambda function deployment package
