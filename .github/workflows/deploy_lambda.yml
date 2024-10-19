@@ -34,23 +34,8 @@ jobs:
           zip -r new_lambda_layer.zip .
 
       # Step 5: Update Lambda Layer
-      - name: Publish new layer version
-        run: |
-            TIMESTAMP=$(date +%Y%m%d%H%M%S)
-            LAYER_NAME="${{ vars.LAMBDA_LAYER_NAME }}-$TIMESTAMP"
-            echo "Publishing Layer: $LAYER_NAME"
-
-            aws lambda publish-layer-version \
-                --layer-name $LAYER_NAME \
-                --description "Updated layer version - $LAYERNAME" \
-                --zip-file fileb://aws/lambda/new_lambda_layer.zip \
-                --compatible-runtimes python3.11 \
-                --output json > layer-output.json
-
-      # Step 6: (Optional) Update a specific Lambda function to use the new layer version
-      - name: Update Lambda function with new layer version
-        run: |
-          LAYER_ARN=$(jq -r '.LayerVersionArn' layer-output.json)
-          aws lambda update-function-configuration \
-            --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
-            --layers $LAYER_ARN
+      - name: lambda_code_update
+      run: |
+        aws lambda update-function-code \
+          --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
+          --zip-file fileb://aws/lambda/new_lambda_layer.zip
