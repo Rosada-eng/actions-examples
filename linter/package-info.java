@@ -1,8 +1,7 @@
 /**
  * This package provides some code to test the linter.
- * <p>
- * CleanCode includes methods that are well formatted and documented.
- * </p>
+ *
+ * <p>CleanCode includes methods that are well formatted and documented.
  *
  * @since 1.0
  * @author Maria Laranjeira
