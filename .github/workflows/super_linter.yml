@@ -23,6 +23,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FIX_SHELL_SHFMT: true
           FIX_GOOGLE_JAVA_FORMAT: true
+          FIX_PYTHON_BLACK: true
+          FIX_PYTHON_ISORT: true
+          FIX_PYTHON_PYINK: true
+          FIX_PYTHON_RUFFUS: true
           VALIDATE_YAML_PRETTIER: false
           VALIDATE_JSON_PRETTIER: false
 
