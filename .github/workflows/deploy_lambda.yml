@@ -3,7 +3,7 @@ name: Deploy Code into AWS Lambda
 on:
   push:
     paths:
-      - 'aws/lambdass/**'
+      - 'aws/lambdas/**'
   workflow_dispatch:
 
 jobs:
