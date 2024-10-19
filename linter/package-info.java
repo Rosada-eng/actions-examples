@@ -1,9 +1,7 @@
 /**
- * This package provides basic arithmetic operations,
- * just to have some code to test the linter.
+ * This package provides some code to test the linter.
  * <p>
- * The CleanCode class includes methods for adding and subtracting
- * two integers, that are well formatted and documented.
+ * CleanCode includes methods that are well formatted and documented.
  * </p>
  *
  * @since 1.0

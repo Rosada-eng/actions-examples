@@ -1,7 +1,6 @@
 package linter;
 /**
- * Calculator class for basic arithmetic operations.
- * Provides methods to add and subtract two integers.
+ * CleanCode class for linter testing.
  *
  * <p>This class is not designed for extension.
  */
