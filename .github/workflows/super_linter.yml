@@ -24,6 +24,8 @@ jobs:
           FIX_SHELL_SHFMT: true
           FIX_GOOGLE_JAVA_FORMAT: true
           VALIDATE_YAML_PRETTIER: false
+          VALIDATE_JSON_PRETTIER: false
+          CREATE_LOG_FILE: true
 
       - name: Commit and push linting fixes
         # Run only on:
