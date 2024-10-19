@@ -2,7 +2,7 @@ import base64
 import os
 
 # Change image option in order to test CI/CD pipeline
-USE_IMAGE = "feup_1.png"
+USE_IMAGE = "feup_1.jpg"
 
 def get_image_path() -> str:
     return os.path.join(os.path.dirname(__file__), "img", USE_IMAGE)
@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         </head>
         <body>
             <h1>Faculty logo:</h1>
-            <img src="data:image/png;base64,{encoded_image}" alt="FEUP Logo"/>
+            <img src="data:image/jpeg;base64,{encoded_image}" alt="FEUP Logo"/>
         </body>
         </html>
         """
