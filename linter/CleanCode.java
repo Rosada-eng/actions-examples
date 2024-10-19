@@ -15,6 +15,7 @@ public final class CleanCode {
         final int a = 10;  // Magic number, consider using constants if needed
         final int b = 20;  // Magic number, consider using constants if needed
         int result = 0;
+        int c;
 
         result = a + b;
         System.out.println("Result: " + result);
