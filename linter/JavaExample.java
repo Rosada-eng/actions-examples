@@ -5,7 +5,7 @@ package linter;
  *
  * <p>This class is not designed for extension.
  */
-public final class CleanCode {
+public final class JavaExample {
 
   /**
    * Main method to execute the calculator operations.
