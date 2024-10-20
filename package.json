@@ -2,7 +2,7 @@
     "name": "unit-tests",
     "version": "1.0.0",
     "description": "",
-    "main": "javascript_example.js",
+    "main": "tests/javascript_example.js",
     "scripts": {
       "test": "jest"
     },
