@@ -32,7 +32,7 @@ jobs:
 
       - name: Commit and push linting fixes
         # Run only on:
-        # - Pull requests
+        # - Push
         # - Not on the default branch
         if: >
           github.event_name == 'push' &&
