@@ -1,0 +1,41 @@
+name: Deploy Code into AWS Lambda
+
+on:
+  push:
+    paths:
+      - 'aws/lambdas/**'
+  workflow_dispatch:
+
+jobs:
+  update-layer:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up AWS CLI and credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Step 3: Install necessary dependencies (e.g., zip)
+      - name: Install zip
+        run: sudo apt-get install zip -y
+
+      # Step 4: Zip the layer contents
+      - name: Package Lambda Layer
+        run: |
+          cd aws/lambdas
+          zip -r new_lambda_layer.zip .
+
+      # Step 5: Update Lambda Function Code
+      - name: Lambda Function Code Update
+        run: |
+          aws lambda update-function-code \
+            --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
+            --zip-file fileb://aws/lambdas/new_lambda_layer.zip
