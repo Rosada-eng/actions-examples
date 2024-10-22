@@ -15,7 +15,7 @@ def get_users():
     conn = engine.connect()
     
     # Vulnerable SQL query - prone to SQL injection
-    result = conn.execute("SELECT user FROM users WHERE user = '" + user + "'")
+    result = conn.execute("SELECT * FROM users WHERE user = '" + user + "'")
 
     # Fetch all results
     users = [row[0] for row in result]
