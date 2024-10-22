@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
 """
     Attack example 1 - retrieve all users data: 
-        username_input = "'admin' OR '1'='1'"
+        username_input = "admin' OR '1'='1"
 
     Attack example 2 - drop table:
         username_input = "'; DROP TABLE users; --"
